@@ -27,6 +27,7 @@ router.delete(
   validateRequest,
   currentUser,
   isLoggedIn,
+  isCommunityModerator,
   removeMember
 );
 export { router as memberRouter };
