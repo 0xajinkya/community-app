@@ -4,7 +4,7 @@
 The authenticated user removes the user with this "id" from all the communities in which we are moderator or administrator
 
 # For Testing
-## Add .env.test inside in the src/test shown in .env.example
+## Add .env.test in the src/test shown in .env.example
 ### And then
 ```bash
 npm run test
