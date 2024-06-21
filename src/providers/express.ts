@@ -17,7 +17,7 @@ const mountMdw = () => {
   app.use(
     cors({
       origin: "*",
-      methods: ["GET", "HEAD", "OPTIONS", "POST", "PUT"],
+      methods: ["GET", "HEAD", "OPTIONS", "POST", "PUT", "DELETE"],
       allowedHeaders: [
         "Origin",
         "X-Requested-With",

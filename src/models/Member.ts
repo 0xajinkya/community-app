@@ -27,13 +27,11 @@ export class Member extends Model<
   @NotNull
   declare id: string;
 
+  declare community?: NonAttribute<Community>;
   @Attribute(DataTypes.STRING)
   @NotNull
   declare communityId: string;
 
-  declare community?: NonAttribute<Community>;
-
-  
   declare user?: NonAttribute<User>;
   @Attribute(DataTypes.STRING)
   @NotNull
