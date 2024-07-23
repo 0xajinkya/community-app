@@ -4,7 +4,7 @@
   "description": "A node js backend application for community platform",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test env-cmd -f src/config/.env.test jest",
     "dev": "NODE_ENV=development env-cmd -f src/config/.env.dev ts-node-dev -r tsconfig-paths/register --transpile-only src/index.ts",
     "build": "npm i && tsc",
     "start": "node build/index.js"
