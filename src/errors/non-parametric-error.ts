@@ -1,6 +1,6 @@
 import { FieldValidationError } from "express-validator";
 import { CustomError } from "./custom-error";
-import { INonParametricError } from "../interfaces";
+import { INonParametricError } from "../interfaces/v1";
 
 
 

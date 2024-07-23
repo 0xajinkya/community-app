@@ -3,7 +3,7 @@ import request from "supertest";
 import { beforeAll, describe, it } from "@jest/globals";
 import { initTestServer } from "./init-test-server";
 import { Application } from "express";
-import { INonParametricError, IParametricError } from "../interfaces";
+import { INonParametricError, IParametricError } from "../interfaces/v1";
 import { Server } from "http";
 
 let app: Application;

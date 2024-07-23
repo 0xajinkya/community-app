@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { decryptSession } from "../utils";
+import { NonParametricError } from "../errors";
+import { decryptSession } from "../universe/v1";
 
 interface UserPayload {
   id: string;
@@ -39,6 +40,29 @@ export const currentUser = (
     req.currentUser = {
       id: payload,
     };
+    console.log(req.currentUser.id)
+  } catch (err) {}
+
+  next();
+};
+
+export const currentUserWHeader = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const authHeader = req.get("Authorization");
+  if (!authHeader) {
+    throw new NonParametricError([
+      { message: "User not logged in", code: "NOT_SIGNEDIN" },
+    ]);
+  }
+  try {
+    const payload = decryptSession(authHeader as string);
+    req.currentUser = {
+      id: payload,
+    };
+    console.log(payload);
   } catch (err) {}
 
   next();
