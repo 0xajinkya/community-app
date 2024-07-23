@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { NonParametricError, ParametricError } from "../errors";
-import { Community, Member, Role, User } from "../models";
+import { Community, Member, Role, User } from "../schema/v1";
 
 
 /**

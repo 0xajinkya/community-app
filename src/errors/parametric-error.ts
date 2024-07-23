@@ -1,5 +1,5 @@
 import { CustomError } from "./custom-error";
-import { IParametricError } from "../interfaces";
+import { IParametricError } from "../interfaces/v1";
 
 /**
  * ParametricError is a custom error class that extends CustomError.

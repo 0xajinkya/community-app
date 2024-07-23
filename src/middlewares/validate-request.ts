@@ -1,9 +1,9 @@
 import { FieldValidationError, validationResult } from "express-validator";
 import { Request, Response, NextFunction } from "express";
 import {  ParametricError } from "../errors";
-import { IParametricError } from "../interfaces";
+import { IParametricError } from "../interfaces/v1";
 import { KeyMap } from "../types";
-import { renameKeys } from "../utils";
+import { renameKeys } from "../universe/v1";
 
 
 

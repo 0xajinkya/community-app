@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { Community, Member, Role, User } from "../models";
-import { NonParametricError } from "../errors";
+import { Community, Member, Role, User } from "../schema/v1";
+import { NonParametricError, ParametricError } from "../errors";
 
 
 /**
@@ -59,11 +59,22 @@ export const isCommunityModerator = async (
           name: "Community Moderator",
         },
       });
+
+      if(!role) {
+        throw new ParametricError([
+          {
+            message: "Role not found.",
+            code: "RESOURCE_NOT_FOUND",
+            param: "role"
+          },
+        ]);
+      }
+      console.log(role)
   
       const membership = await Member.findOne({
         where: {
           userId: user.id,
-          communityId: community.id,
+          communityId: comm.id,
           roleId: role!.id,
         },
       });
@@ -78,6 +89,7 @@ export const isCommunityModerator = async (
       }
       next();
     } catch (error) {
+      console.log(error);
       next(error);
     }
   };

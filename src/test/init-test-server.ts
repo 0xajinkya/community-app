@@ -7,7 +7,7 @@ dotenv.config({ path:  pth});
 import { PORT } from '../config';
 import { sequelize } from '../db';
 import { app } from '../providers';
-import { Community, Member, Role, User } from '../models';
+import { Community, Member, Role, User } from '../schema/v1';
 
 
 export const initTestServer = async () => {
